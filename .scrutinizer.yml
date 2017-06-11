@@ -9,3 +9,7 @@ build:
                 coverage:
                     file: 'build/coverage.clover'
                     format: 'clover'
+checks:
+    php:
+        code_rating: true
+        duplication: true
