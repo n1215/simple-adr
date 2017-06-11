@@ -29,7 +29,7 @@ and access
 - http://localhost:8000/?id=2
 - http://localhost:8000/?id=3
 
-## Source code
+## Directory structure
 
 - entry point: [public/index.php](public/index.php)
 - Action: [\N1215\SimpleAdr\Action\UserShowAction](src/Action/UserShowAction.php)
