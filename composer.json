@@ -1,0 +1,45 @@
+{
+    "name": "n1215/simple-adr",
+    "description": "A simple Action-Domain-Responder pattern example.",
+    "keywords": [
+        "action-domain-responder",
+        "adr"
+    ],
+    "type": "library",
+    "homepage": "https://github.com/n1215/simple-adr",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "n1215",
+            "email": "knakae1215@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "zendframework/zend-diactoros": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "N1215\\SimpleAdr\\": "src"
+        }
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.9",
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "N1215\\SimpleAdr\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit"
+        ],
+        "coverage": [
+            "rm -rf ./build",
+            "mkdir ./build",
+            "php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage --coverage-clover=build/coverage.clover"
+        ]
+    }
+}

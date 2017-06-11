@@ -1,0 +1,11 @@
+filter:
+    paths:
+        - src/*
+build:
+    tests:
+        override:
+            -
+                command: 'composer coverage'
+                coverage:
+                    file: 'build/coverage.clover'
+                    format: 'clover'
