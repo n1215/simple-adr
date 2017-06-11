@@ -5,7 +5,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/n1215/simple-adr/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/n1215/simple-adr/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/n1215/simple-adr/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/n1215/simple-adr/?branch=master)
 
-A simple Action-Domain-Responder pattern example with no framework.
+A simple [Action-Domain-Responder pattern](https://github.com/pmjones/adr) example with no framework.
 
 # Usage
 
