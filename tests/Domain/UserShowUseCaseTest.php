@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace N1215\SimpleAdr\Domain;
 
@@ -19,7 +20,6 @@ class UserShowUseCaseTest extends TestCase
         ]);
     }
 
-
     public function testRun()
     {
         $this->assertNull($this->useCase->run(null));
@@ -35,5 +35,4 @@ class UserShowUseCaseTest extends TestCase
         $this->assertEquals(2, $user->getId()->getValue());
         $this->assertEquals('Mary', $user->getName()->getValue());
     }
-
 }

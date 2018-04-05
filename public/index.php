@@ -20,5 +20,5 @@ function createAction() {
 
 $action = createAction();
 $request = \Zend\Diactoros\ServerRequestFactory::fromGlobals();
-$response = $action->__invoke($request);
+$response = $action->handle($request);
 (new \Zend\Diactoros\Response\SapiEmitter())->emit($response);

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace N1215\SimpleAdr\Action;
 
@@ -6,8 +7,13 @@ use N1215\SimpleAdr\Domain\UserShowUseCase;
 use N1215\SimpleAdr\Responder\UserShowJsonResponder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
-class UserShowAction
+/**
+ * ユーザ詳細アクション
+ * @package N1215\SimpleAdr\Action
+ */
+class UserShowAction implements RequestHandlerInterface
 {
     /**
      * @var UserShowUseCase
@@ -19,13 +25,21 @@ class UserShowAction
      */
     private $responder;
 
+    /**
+     * コンストラクタ
+     * @param UserShowUseCase $useCase
+     * @param UserShowJsonResponder $responder
+     */
     public function __construct(UserShowUseCase $useCase, UserShowJsonResponder $responder)
     {
         $this->useCase = $useCase;
         $this->responder = $responder;
     }
 
-    public function __invoke(ServerRequestInterface $request): ResponseInterface
+    /**
+     * @inheritdoc
+     */
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $queryParams = $request->getQueryParams();
         $rawUserId = isset($queryParams['id']) ? intval($queryParams['id']) : null;

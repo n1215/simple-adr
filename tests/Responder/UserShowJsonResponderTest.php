@@ -1,8 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace N1215\SimpleAdr\Responder;
 
 use N1215\SimpleAdr\Domain\User;
+use N1215\SimpleAdr\Domain\UserId;
+use N1215\SimpleAdr\Domain\UserName;
 use PHPUnit\Framework\TestCase;
 
 class UserShowJsonResponderTest extends TestCase
@@ -17,23 +20,15 @@ class UserShowJsonResponderTest extends TestCase
         $this->responder = new UserShowJsonResponder();
     }
 
-
     public function testRespond()
     {
-        $mockUser = \Mockery::mock(User::class);
-        $mockUser->shouldReceive('jsonSerialize')
-            ->andReturn([
-                'id' => 1,
-                'name' => 'Tom',
-            ]);
+        $user = new User(new UserId(1), new UserName('Tom'));
 
-
-        $response = $this->responder->respond($mockUser);
+        $response = $this->responder->respond($user);
         $this->assertEquals('{"id":1,"name":"Tom"}', $response->getBody()->__toString());
 
 
         $notFoundResponse = $this->responder->respond(null);
         $this->assertEquals(404, $notFoundResponse->getStatusCode());
     }
-
 }

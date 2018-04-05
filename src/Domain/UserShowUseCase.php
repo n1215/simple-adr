@@ -1,17 +1,21 @@
 <?php
+declare(strict_types=1);
 
 namespace N1215\SimpleAdr\Domain;
 
-
+/**
+ * ユーザの詳細を取得する
+ * @package N1215\SimpleAdr\Domain
+ */
 class UserShowUseCase
 {
-
     /**
      * @var User[]
      */
     private $users;
 
     /**
+     * コンストラクタ
      * @param User[] $users
      */
     public function __construct(array $users)
@@ -25,6 +29,7 @@ class UserShowUseCase
 
     /**
      * ユーザーを追加
+     * @param User $user
      */
     private function addUser(User $user): void
     {
@@ -33,6 +38,8 @@ class UserShowUseCase
 
     /**
      * IDを指定してユーザーを取得
+     * @param int|null $rawUserId
+     * @return User|null
      */
     public function run(?int $rawUserId): ?User
     {

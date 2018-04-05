@@ -1,12 +1,23 @@
 <?php
+declare(strict_types=1);
 
 namespace N1215\SimpleAdr\Domain;
 
+/**
+ * ユーザID
+ * @package N1215\SimpleAdr\Domain
+ */
 class UserId
 {
-    /** @var int|null */
+    /**
+     * @var int|null
+     */
     private $userId;
 
+    /**
+     * コンストラクタ
+     * @param int|null $userId
+     */
     public function __construct(?int $userId)
     {
         $this->userId = $userId;
@@ -14,6 +25,7 @@ class UserId
 
     /**
      * スカラー値を取得
+     * @return int|null
      */
     public function getValue(): ?int
     {

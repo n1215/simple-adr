@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ken
- * Date: 2017/06/11
- * Time: 14:50
- */
+declare(strict_types=1);
 
 namespace N1215\SimpleAdr\Domain;
 
@@ -12,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase
 {
-
     /** @var  User */
     private $user;
 
@@ -43,5 +37,4 @@ class UserTest extends TestCase
         $this->assertInstanceOf(UserName::class, $userName);
         $this->assertEquals('Tom', $userName->getValue());
     }
-
 }
