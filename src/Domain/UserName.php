@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace N1215\SimpleAdr\Domain;
 
 /**
- * ユーザ名
+ * User name
  * @package N1215\SimpleAdr\Domain
  */
 class UserName
@@ -15,7 +15,6 @@ class UserName
     private $userName;
 
     /**
-     * コンストラクタ
      * @param string $userName
      */
     public function __construct(string $userName)
@@ -24,7 +23,6 @@ class UserName
     }
 
     /**
-     * スカラー値を取得
      * @return string
      */
     public function getValue() : string

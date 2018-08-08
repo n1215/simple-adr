@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace N1215\SimpleAdr\Domain;
 
 /**
- * ユーザ
+ * User
  * @package N1215\SimpleAdr\Domain
  */
 class User implements \JsonSerializable
@@ -20,7 +20,6 @@ class User implements \JsonSerializable
     private $userName;
 
     /**
-     * コンストラクタ
      * @param UserId $userId
      * @param UserName $userName
      */
@@ -31,7 +30,6 @@ class User implements \JsonSerializable
     }
 
     /**
-     * ユーザー名を取得
      * @return UserName
      */
     public function getName() : UserName
@@ -40,7 +38,6 @@ class User implements \JsonSerializable
     }
 
     /**
-     * ユーザーIDを取得
      * @return UserId
      */
     public function getId() : UserId
@@ -49,7 +46,6 @@ class User implements \JsonSerializable
     }
 
     /**
-     * JSON用の配列に変換
      * @return array
      */
     public function jsonSerialize() : array

@@ -8,7 +8,7 @@ use Zend\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * ユーザ詳細レスポンダー
+ * User show responder
  * @package N1215\SimpleAdr\Responder
  */
 class UserShowJsonResponder
@@ -19,11 +19,11 @@ class UserShowJsonResponder
      */
     public function respond(User $user = null): ResponseInterface
     {
-        if(is_null($user)) {
+        if($user === null) {
             return new JsonResponse([
                 'error' => [
                     'type' => 'not_found',
-                    'message' => '見つかりません',
+                    'message' => 'User not found.',
                 ],
             ], 404);
         }

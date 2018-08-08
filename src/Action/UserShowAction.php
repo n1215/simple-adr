@@ -10,7 +10,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 /**
- * ユーザ詳細アクション
+ * User show action
  * @package N1215\SimpleAdr\Action
  */
 class UserShowAction implements RequestHandlerInterface
@@ -26,7 +26,6 @@ class UserShowAction implements RequestHandlerInterface
     private $responder;
 
     /**
-     * コンストラクタ
      * @param UserShowUseCase $useCase
      * @param UserShowJsonResponder $responder
      */
@@ -42,7 +41,7 @@ class UserShowAction implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $queryParams = $request->getQueryParams();
-        $rawUserId = isset($queryParams['id']) ? intval($queryParams['id']) : null;
+        $rawUserId = isset($queryParams['id']) ? (int) $queryParams['id'] : null;
         return $this->responder->respond($this->useCase->run($rawUserId));
     }
 }

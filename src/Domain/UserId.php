@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace N1215\SimpleAdr\Domain;
 
 /**
- * ユーザID
+ * User ID
  * @package N1215\SimpleAdr\Domain
  */
 class UserId
@@ -15,7 +15,6 @@ class UserId
     private $userId;
 
     /**
-     * コンストラクタ
      * @param int|null $userId
      */
     public function __construct(?int $userId)
@@ -24,7 +23,6 @@ class UserId
     }
 
     /**
-     * スカラー値を取得
      * @return int|null
      */
     public function getValue(): ?int
@@ -33,7 +31,6 @@ class UserId
     }
 
     /**
-     * 同じIDかどうか判定
      * @param UserId $userId
      * @return bool
      */
