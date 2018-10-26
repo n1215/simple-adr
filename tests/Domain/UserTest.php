@@ -16,7 +16,7 @@ class UserTest extends TestCase
         $this->user = new User(new UserId(1), new UserName('Tom'));
     }
 
-    public function testJsonSerialize()
+    public function testJsonSerialize(): void
     {
         $this->assertEquals([
             'id' => 1,
@@ -24,14 +24,14 @@ class UserTest extends TestCase
         ], $this->user->jsonSerialize());
     }
 
-    public function testGetId()
+    public function testGetId(): void
     {
         $userId = $this->user->getId();
         $this->assertInstanceOf(UserId::class, $userId);
         $this->assertEquals(1, $userId->getValue());
     }
 
-    public function testGetName()
+    public function testGetName(): void
     {
         $userName = $this->user->getName();
         $this->assertInstanceOf(UserName::class, $userName);

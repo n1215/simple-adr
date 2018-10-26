@@ -20,7 +20,7 @@ class UserShowUseCaseTest extends TestCase
         ]);
     }
 
-    public function testRun()
+    public function testRun(): void
     {
         $this->assertNull($this->useCase->run(null));
         $this->assertNull($this->useCase->run(3));

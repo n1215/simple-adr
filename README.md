@@ -5,7 +5,8 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/n1215/simple-adr/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/n1215/simple-adr/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/n1215/simple-adr/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/n1215/simple-adr/?branch=master)
 
-A simple [Action-Domain-Responder pattern](https://github.com/pmjones/adr) and PSR-15 example with no framework.
+A dead simple [Action-Domain-Responder pattern](https://github.com/pmjones/adr) example with no framework.
+Compatible with [PSR-15 HTTP Server Request Handlers](https://www.php-fig.org/psr/psr-15/) and [PSR-17 HTTP Factories](https://www.php-fig.org/psr/psr-17/).
 
 # Usage
 
@@ -13,14 +14,13 @@ A simple [Action-Domain-Responder pattern](https://github.com/pmjones/adr) and P
 
 ```
 composer create-project n1215/simple-adr
-
 ```
 
 ## Start server
 
 ```
 cd simple-adr
-php -S localhost:8000 -t public/
+php -S localhost:8000 -t public
 ```
 
 and access

@@ -13,7 +13,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class UserShowActionTest extends TestCase
 {
-    public function test_handle()
+    public function test_handle(): void
     {
         /** @var ServerRequestInterface|MockObject $request */
         $request = $this->createMock(ServerRequestInterface::class);

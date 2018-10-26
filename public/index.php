@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -14,11 +15,14 @@ function createAction() {
         new User(new UserId(1), new UserName('Tom')),
         new User(new UserId(2), new UserName('Mary')),
     ]);
-    $responder = new UserShowJsonResponder();
+    $responder = new UserShowJsonResponder(
+        new \Zend\Diactoros\ResponseFactory(),
+        new \Zend\Diactoros\StreamFactory()
+    );
     return new UserShowAction($useCase, $responder);
 }
 
 $action = createAction();
 $request = \Zend\Diactoros\ServerRequestFactory::fromGlobals();
 $response = $action->handle($request);
-(new \Zend\Diactoros\Response\SapiEmitter())->emit($response);
+(new \Zend\HttpHandlerRunner\Emitter\SapiEmitter())->emit($response);

@@ -7,5 +7,4 @@ nbproject
 .settings
 composer.lock
 vendor/
-phpunit.xml
 build
