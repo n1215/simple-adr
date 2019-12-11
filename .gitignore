@@ -5,6 +5,7 @@
 nbproject
 .project
 .settings
+.phpunit.result.cache
 composer.lock
 vendor/
 build

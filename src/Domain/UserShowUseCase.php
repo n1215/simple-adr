@@ -17,21 +17,9 @@ class UserShowUseCase
     /**
      * @param User[] $users
      */
-    public function __construct(array $users)
+    public function __construct(User ...$users)
     {
-        $this->users = [];
-
-        foreach ($users as $user) {
-            $this->addUser($user);
-        }
-    }
-
-    /**
-     * @param User $user
-     */
-    private function addUser(User $user): void
-    {
-        $this->users[] = $user;
+        $this->users = $users;
     }
 
     /**
@@ -41,7 +29,7 @@ class UserShowUseCase
     public function run(?int $rawUserId): ?User
     {
         $userId = new UserId($rawUserId);
-        foreach($this->users as $user) {
+        foreach ($this->users as $user) {
             if ($user->getId()->equals($userId)) {
                 return $user;
             }

@@ -10,14 +10,14 @@ class UserShowUseCaseTest extends TestCase
     /** @var  UserShowUseCase */
     private $useCase;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
-        $this->useCase = new UserShowUseCase([
+        $this->useCase = new UserShowUseCase(
             new User(new UserId(1), new UserName('Tom')),
-            new User(new UserId(2), new UserName('Mary')),
-        ]);
+            new User(new UserId(2), new UserName('Mary'))
+        );
     }
 
     public function testRun(): void

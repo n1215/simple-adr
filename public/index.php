@@ -10,11 +10,11 @@ use N1215\SimpleAdr\Domain\UserName;
 use N1215\SimpleAdr\Domain\UserShowUseCase;
 use N1215\SimpleAdr\Responder\UserShowJsonResponder;
 
-function createAction() {
-    $useCase = new UserShowUseCase([
+function createAction(): UserShowAction {
+    $useCase = new UserShowUseCase(
         new User(new UserId(1), new UserName('Tom')),
-        new User(new UserId(2), new UserName('Mary')),
-    ]);
+        new User(new UserId(2), new UserName('Mary'))
+    );
     $responder = new UserShowJsonResponder(
         new \Zend\Diactoros\ResponseFactory(),
         new \Zend\Diactoros\StreamFactory()

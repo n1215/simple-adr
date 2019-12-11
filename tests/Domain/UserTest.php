@@ -10,7 +10,7 @@ class UserTest extends TestCase
     /** @var  User */
     private $user;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->user = new User(new UserId(1), new UserName('Tom'));

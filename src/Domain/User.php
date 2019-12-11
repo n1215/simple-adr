@@ -3,11 +3,13 @@ declare(strict_types=1);
 
 namespace N1215\SimpleAdr\Domain;
 
+use JsonSerializable;
+
 /**
  * User
  * @package N1215\SimpleAdr\Domain
  */
-class User implements \JsonSerializable
+class User implements JsonSerializable
 {
     /**
      * @var UserId

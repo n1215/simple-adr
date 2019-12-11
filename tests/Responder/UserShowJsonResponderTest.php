@@ -15,7 +15,7 @@ class UserShowJsonResponderTest extends TestCase
     /** @var  UserShowJsonResponder */
     private $responder;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace N1215\SimpleAdr\Responder;
 
+use JsonSerializable;
 use N1215\SimpleAdr\Domain\User;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
@@ -24,6 +25,10 @@ class UserShowJsonResponder
      */
     private $streamFactory;
 
+    /**
+     * @param ResponseFactoryInterface $responseFactory
+     * @param StreamFactoryInterface $streamFactory
+     */
     public function __construct(ResponseFactoryInterface $responseFactory, StreamFactoryInterface $streamFactory)
     {
         $this->responseFactory = $responseFactory;
@@ -36,7 +41,7 @@ class UserShowJsonResponder
      */
     public function respond(User $user = null): ResponseInterface
     {
-        if($user === null) {
+        if ($user === null) {
             return $this->createJsonResponse([
                 'error' => [
                     'type' => 'not_found',
@@ -49,7 +54,7 @@ class UserShowJsonResponder
     }
 
     /**
-     * @param array|\JsonSerializable $body
+     * @param array|JsonSerializable $body
      * @param int $status
      * @return ResponseInterface
      */
@@ -57,7 +62,7 @@ class UserShowJsonResponder
     {
         return $this->responseFactory
             ->createResponse($status)
-            ->withBody($this->streamFactory->createStream(\json_encode($body)))
+            ->withBody($this->streamFactory->createStream(json_encode($body)))
             ->withHeader('content-type', 'application/json');
     }
 }
