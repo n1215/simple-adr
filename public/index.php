@@ -16,13 +16,13 @@ function createAction(): UserShowAction {
         new User(new UserId(2), new UserName('Mary'))
     );
     $responder = new UserShowJsonResponder(
-        new \Zend\Diactoros\ResponseFactory(),
-        new \Zend\Diactoros\StreamFactory()
+        new \Laminas\Diactoros\ResponseFactory(),
+        new \Laminas\Diactoros\StreamFactory()
     );
     return new UserShowAction($useCase, $responder);
 }
 
 $action = createAction();
-$request = \Zend\Diactoros\ServerRequestFactory::fromGlobals();
+$request = \Laminas\Diactoros\ServerRequestFactory::fromGlobals();
 $response = $action->handle($request);
-(new \Zend\HttpHandlerRunner\Emitter\SapiEmitter())->emit($response);
+(new \Laminas\HttpHandlerRunner\Emitter\SapiEmitter())->emit($response);

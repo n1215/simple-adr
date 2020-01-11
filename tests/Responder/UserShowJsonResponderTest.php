@@ -7,8 +7,8 @@ use N1215\SimpleAdr\Domain\User;
 use N1215\SimpleAdr\Domain\UserId;
 use N1215\SimpleAdr\Domain\UserName;
 use PHPUnit\Framework\TestCase;
-use Zend\Diactoros\ResponseFactory;
-use Zend\Diactoros\StreamFactory;
+use Laminas\Diactoros\ResponseFactory;
+use Laminas\Diactoros\StreamFactory;
 
 class UserShowJsonResponderTest extends TestCase
 {
